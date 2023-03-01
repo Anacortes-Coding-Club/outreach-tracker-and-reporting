@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Visit
 {
-    private ArrayList<Person> personStorage = new ArrayList<Person>();
+    private ArrayList<Person> personStorage = new ArrayList<>();
 
     public ArrayList<Person> getPersons()
     {

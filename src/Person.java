@@ -3,8 +3,8 @@ public class Person
 {
     private String firstName = "";
     private String lastName = "";
-    private ArrayList<Note> notes = new ArrayList<Note>();
-    private ArrayList<Tag> tags = new ArrayList<Tag>();
+    private ArrayList<Note> notes = new ArrayList<>();
+    private ArrayList<Tag> tags = new ArrayList<>();
 
     public String getFirstName()
     {

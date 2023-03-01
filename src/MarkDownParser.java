@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class MarkDownParser {
-    private static ArrayList<Date> dateStorage = new ArrayList<Date>();
-    private static ArrayList<String> textStorage = new ArrayList<String>();
+    private static ArrayList<Date> dateStorage = new ArrayList<>();
+    private static ArrayList<String> textStorage = new ArrayList<>();
 
     public static void main(String[] args)
     {

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Date
 {
-    private ArrayList<Visit> visitStorage = new ArrayList<Visit>();
+    private ArrayList<Visit> visitStorage = new ArrayList<>();
     private int day = -1;
     private int month = -1;
     private int year = -1;
