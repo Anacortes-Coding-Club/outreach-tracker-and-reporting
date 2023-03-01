@@ -9,8 +9,44 @@ public class MarkDownParser {
 
     public static void main(String[] args)
     {
-        parse();
-        //print();
+        Person testA = new Person();
+        testA.setFirstName("A");
+        testA.setLastName("B");
+        //testA.printFirstName();
+        //testA.printLastName();
+
+        //line();
+
+        Note jefferey = new Note();
+        jefferey.setNote("I enjoy eating christmas ornaments.");
+        //jefferey.printNote();
+
+        Tag ronaldo = new Tag();
+        ronaldo.setTag("tave");
+        //ronaldo.printTag();
+
+        //line();
+
+        testA.addNote(jefferey);
+        testA.addTag(ronaldo);
+        //testA.printNotes();
+        //testA.printTags();
+
+        //line();
+
+        Visit crungle = new Visit();
+        crungle.addPerson(testA);
+
+        Date flimbus = new Date();
+        flimbus.setDate("march", 1, 2022);
+        flimbus.addVisit(crungle);
+
+        //flimbus.printDate();
+        //flimbus.printVisits();
+        dateStorage.add(flimbus);
+
+        //parse();
+        print();
     }
     private static void parse ()
     {
@@ -38,13 +74,20 @@ public class MarkDownParser {
     }
     private static void print()
     {
-        for(int i = 0; i < dateStorage.size(); i++)
+        for(Date date : dateStorage)
         {
-            dateStorage.get(i);
-            System.out.println("Boop");
+            date.printDate();
+            date.printVisits();
+            line();
         }
     }
+    private static void line()
+    {
+        System.out.println();
+    }
+
 }
+
 /*
 Dates:
  - Visits
