@@ -30,52 +30,78 @@ public class MarkDownParser {
             e.printStackTrace();
         }
 
-        for(String line : textStorage)
+
+
+
+        for(String lineOrig : textStorage)
         {
+            String line = lineOrig;
             if(!line.isBlank())
                 System.out.println(line);
-            char[] temp = line.toCharArray();
-            int poundTally = 0;
-            boolean spaceAfterPound = false;
-            char lastCha = ' ';
-            boolean noteMarkerFound = false;
-
-            for(char cha : temp)
+            char[] lineChar = line.toCharArray();
+            while(line.contains("#"))
             {
-                if(lastCha == '#' && cha == ' ')
+                if (line.contains("# "))
                 {
-                    spaceAfterPound = true;
+                    Date dCur = new Date();
+                    dCur.setDate("March", 3, 2023);
+                    Visit vCur = new Visit();
+                    dCur.addVisit(vCur);
+                    dateStorage.add(dCur);
+
+
                 }
-                switch (cha)
+                if (line.contains("###"))
                 {
-                    case '#' :
-                        poundTally++;
-                        break;
-                    case '*' :
-                    case '-' :
-                    case '_' :
-                        noteMarkerFound = true;
-                        break;
+                    Person pCur = new Person();
+                    pCur.setFirstName("Bob");
+                    pCur.setLastName("Bobson");
+                    dateStorage.get(dateStorage.size() - 1).getVisits().get(0).addPerson(pCur);
+
+
                 }
-                lastCha = cha;
+                if (line.contains("#") && !line.contains("# "))
+                {
+                    Tag tCur = new Tag();
+                    tCur.setTag(line.substring(line.indexOf("#")));
+                    dateStorage.get(dateStorage.size() - 1).getVisits().get(0).getPersons().get(0).addTag(tCur);
+
+                    lineChar.
+                }
+                line = new String(lineChar);
+            }
+            if(line.contains("*") || line.contains("-") || line.contains("_"))
+            {
+                if(line.contains("*"))
+                {
+                    System.out.println("Note: " + line.substring(line.indexOf("*")));
+                    Note nCur = new Note();
+                    nCur.setNote(line.substring(line.indexOf("*")));
+                    dateStorage.get(dateStorage.size() - 1).getVisits().get(0).getPersons().get(0).addNote(nCur);
+                }
+                else if(line.contains("-"))
+                {
+                    System.out.println("Note: " + line.substring(line.indexOf("-")));
+                    Note nCur = new Note();
+                    nCur.setNote(line.substring(line.indexOf("-")));
+                    dateStorage.get(dateStorage.size() - 1).getVisits().get(0).getPersons().get(0).addNote(nCur);
+                }
+                else if(line.contains("_"))
+                {
+                    System.out.println("Note: " + line.substring(line.indexOf("_")));
+                    Note nCur = new Note();
+                    nCur.setNote(line.substring(line.indexOf("_")));
+                    dateStorage.get(dateStorage.size() - 1).getVisits().get(0).getPersons().get(0).addNote(nCur);
+                }
             }
 
-            if(poundTally >= 3)
-            {
-                System.out.println("Person");
-            }
-            else if (poundTally == 1 && spaceAfterPound)
-            {
-                System.out.println("Date");
-            }
-            else if (poundTally == 1 && !spaceAfterPound)
-            {
-                System.out.println("Tag");
-            }
-            else if (noteMarkerFound)
-            {
-                System.out.println("Note");
-            }
+            /*
+            Three pounds in a row                                           = Person
+            A pound and then the rest of the letters until a space or comma = Tag
+            A pound followed by a space                                     = Date
+            * - _ rest of the line until end or pound                       = Note
+             */
+
             /*
             Current Problems:
              - Needs to be able to account for multiple things in one line. i.e note and tag, or multiple tags
@@ -84,13 +110,11 @@ public class MarkDownParser {
                Possible solution: check that all three pounds are right next to each other.
              - Two tags, but with a note marker registers as a note
                Possible solution: switch up the tag and note detection to be less specific.
-
-             Future Problems:
+            Future Problems:
               - Current working data is messy. Convert non number and non alphabet characters to spaces, then trim.
               - Some people do not have last names, need to be able to detect this
               - Cannot account for more than one person in a visit. This will need to be fixed, if only to give visits an actual purpose.
-
-             Ideas:
+            Ideas:
               - Search functions
               - Global statistics
               - Sort by people rather than by date.
