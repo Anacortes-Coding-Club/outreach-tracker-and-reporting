@@ -128,6 +128,9 @@ public class Date
     {
         return visitStorage;
     }
+    public void setVisits(ArrayList<Visit> input){
+        visitStorage = input;
+    }
     public void addVisit(Visit input)
     {
         visitStorage.add(input);

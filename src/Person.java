@@ -34,6 +34,9 @@ public class Person
     {
         return notes;
     }
+    public void setNotes(ArrayList<Note> input){
+        notes = input;
+    }
     public void addNote(Note input)
     {
         notes.add(input);
@@ -47,6 +50,9 @@ public class Person
     public ArrayList<Tag> getTags()
     {
         return tags;
+    }
+    public void setTags(ArrayList<Tag> input){
+        tags = input;
     }
     public void addTag(Tag input)
     {

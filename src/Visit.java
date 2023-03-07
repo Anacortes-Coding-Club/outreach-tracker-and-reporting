@@ -7,6 +7,9 @@ public class Visit
     {
         return personStorage;
     }
+    public void setPerson(ArrayList<Person> input){
+        personStorage = input;
+    }
     public void addPerson(Person input)
     {
         personStorage.add(input);
