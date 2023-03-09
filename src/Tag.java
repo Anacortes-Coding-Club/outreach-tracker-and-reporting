@@ -1,6 +1,7 @@
 public class Tag
 {
-    private enum TagID {
+    private enum TagID
+    {
         CC,             // 1  met with client
         TAVE,           // 2 on T Avenue
         CAR,            // 3 living in car
@@ -123,6 +124,6 @@ public class Tag
     }
     public void printTag ()
     {
-        System.out.println(tag);
+        System.out.print(tag + ", ");
     }
 }

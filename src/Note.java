@@ -12,6 +12,6 @@ public class Note
     }
     public void printNote()
     {
-        System.out.println(note);
+        System.out.println("\t\t" + note);
     }
 }

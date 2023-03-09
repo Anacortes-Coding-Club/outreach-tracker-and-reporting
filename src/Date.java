@@ -28,7 +28,7 @@ public class Date
         temp = numToMonth(month);
         System.out.println(temp + " " + day + ", " + year);
     }
-    private String numToMonth (int input)
+    public String numToMonth (int input)
     {
         String temp;
         switch (input)
@@ -75,11 +75,11 @@ public class Date
         }
         return temp;
     }
-    private int monthToNum(String input)
+    public int monthToNum(String input)
     {
         String tempInput = input.toLowerCase();
         int tempOutput;
-        switch (input)
+        switch (tempInput)
         {
             case "january":
                 tempOutput = 1;
@@ -128,7 +128,8 @@ public class Date
     {
         return visitStorage;
     }
-    public void setVisits(ArrayList<Visit> input){
+    public void setVisits(ArrayList<Visit> input)
+    {
         visitStorage = input;
     }
     public void addVisit(Visit input)
