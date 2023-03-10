@@ -52,7 +52,7 @@ public class Visit extends Taggable{
         String[] personNotes = input.split("###");
         for(int i = 1; i < personNotes.length; i++){
             visitPeople.add(Person.find(personNotes[i].split("\n")));
-            System.out.println("got to person " +i);
+            //System.out.println("got to person " +i);
         }
 
     }

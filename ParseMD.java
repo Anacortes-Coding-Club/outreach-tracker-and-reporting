@@ -31,13 +31,14 @@ public class ParseMD{
         String[] events = input.split("\n# ");
         for(int i = 0; i < events.length; i++){
             ParseMD.info.visits.add(new Visit(events[i]));
-            System.out.println("got to visit "+i);
+            //System.out.println("got to visit "+i);
         }
         
         //test code
-        System.out.println(ParseMD.info.notes);
-        System.out.println(ParseMD.info.people.get(1).notes);
-        System.out.println(ParseMD.info.people.get(3).notes);
+        System.out.println(info.visits.get(0).tags[0]);
+        for(int i = 0; i < info.tags.length; i++){
+            System.out.println(info.tags[i]);
+        }
     }
     
     /**
