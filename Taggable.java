@@ -107,12 +107,18 @@ public abstract class Taggable{
         //replace
         notes = rawNotes;
         for(int i = 0; i < tokens.length; i++){
-            notes = notes.replace(tokens[i], translations[i]);
+            if(translations[i] != null){
+                notes = notes.replace(tokens[i], translations[i]);
+            }
         }
     }
     
     private static int count(String token, String input){
-        String[] x = input.split(token);
-        return (x.length -1);
+        int b = 0;
+        if (token != null){
+            String[] x = input.split(token);
+            b = (x.length -1);
+        } 
+        return b;
     }
 }

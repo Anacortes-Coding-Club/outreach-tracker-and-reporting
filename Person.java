@@ -12,10 +12,10 @@ public class Person extends Taggable{
     private Person(String[] a){
         name = a[0];
         notes += (name + "\n" + ParseMD.currentDate + "\n");
-        tagify();
         for(int i=1; i < a.length; i++){
             rawNotes += (a[i]+"\n");
         }
+        tagify();
     }
     public static Person find(String[] a){
         Person x = null;

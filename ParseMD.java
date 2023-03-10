@@ -21,8 +21,7 @@ public class ParseMD{
      */
     public static void main(String[] args){
         //reading files and adding new input to allInput
-        String input = readTxt("allInput.txt")+readTxt("betterInput.txt");
-        writeTxt(input, "allInput.txt");
+        String input = readTxt("betterInput.md");
         
         //info's taggable stuff
         info.rawNotes = input;

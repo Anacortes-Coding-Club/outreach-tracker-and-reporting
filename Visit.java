@@ -19,6 +19,7 @@ public class Visit extends Taggable{
         //calender stuff
         String[] lines = input.split("\n");//split up input by line
         ParseMD.currentDate = lines[0];
+
         //set the month
         if(lines[0].contains("January")){visitDate.set(visitDate.MONTH, 0);}
         else if(lines[0].contains("February")){visitDate.set(visitDate.MONTH, 1);}
@@ -35,7 +36,6 @@ public class Visit extends Taggable{
         
         int ofst = (lines[0].contains("#")) ? 1 : 0;//if this is the first line of a file, it will start with a #. ofst is here to account for that so that the code below can ignore it if it exists.
         
-        
         String[] x = lines[0].split(" ");//split up the words in the first line to use for date and year setting
         //set the date
         String a = x[1+ofst].replace(",","");
@@ -50,7 +50,7 @@ public class Visit extends Taggable{
         //find all the people in the visit and add them to visitPeopole
         Person p = null;
         String[] personNotes = input.split("###");
-        for(int i = 0; i < personNotes.length; i++){
+        for(int i = 1; i < personNotes.length; i++){
             visitPeople.add(Person.find(personNotes[i].split("\n")));
             System.out.println("got to person " +i);
         }
