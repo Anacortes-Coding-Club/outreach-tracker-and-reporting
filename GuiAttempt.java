@@ -15,7 +15,7 @@ public class GuiAttempt{
     JList<String> tags = new JList<String>(Taggable.tokens);
     JList<String> inputs = new JList<String>((String[])ParseMD.inputs.toArray());
 
-    public void init(){
+    public void go(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.addWindowListener(new clslstnr());
         frame.setSize(100, 100);
@@ -27,14 +27,19 @@ public class GuiAttempt{
         scrl.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrl.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        JButton nvst = new JButton("New Visit");
+        nvst.addActionListener(new nvstlstnr());
+
+        frame.add(scrl, BorderLayout.WEST);
+        frame.add(nvst, BorderLayout.NORTH);
     }
     
-    public void newVisit(){
+    private void newVisit(){
         saveType = false;
         frame.add(inputter("@Date"), BorderLayout.CENTER);
     }
 
-    public void editVisit(int i){
+    private void editVisit(int i){
         index = i;
         saveType = true;
         frame.add(inputter(ParseMD.inputs.get(i)), BorderLayout.CENTER);
@@ -49,7 +54,7 @@ public class GuiAttempt{
                 ParseMD.inputs.add(area.getText());
             }
             area.setText("");
-            panel.remove(area);
+            frame.remove(panel);
         }
     }
 
@@ -116,7 +121,7 @@ public class GuiAttempt{
     public class  cnclstnr implements ActionListener{
         public void actionPerformed(ActionEvent event){
             area.setText("");
-            panel.remove(area);
+            frame.remove(panel);
         }
     }
     public class  clslstnr implements WindowListener{
@@ -133,8 +138,13 @@ public class GuiAttempt{
     public class  inplstnr implements ListSelectionListener{
         public void valueChanged(ListSelectionEvent event){
             if(!event.getValueIsAdjusting()){
-                editVisit(inputs.getSelectedValue);
+                editVisit(inputs.getSelectedIndex());
             }
+        }
+    }
+    public class  nvstlstnr implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            newVisit();
         }
     }
 }

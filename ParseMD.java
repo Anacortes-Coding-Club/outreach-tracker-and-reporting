@@ -14,13 +14,18 @@ public class ParseMD{
     public static String currentDate = null; //holds the date currently being proscessed in string form, for use in person notes.
     public static ArrayList<String> inputs = new ArrayList<String>();
     
+    
+    public static void main(String[] args){
+        GuiAttempt gui = new GuiAttempt();
+        gui.go();
+    }
     /**
      * reads the new input, as well as allInput
      * writes the new input on to allInput
      * tagifies the whole document
      * creates visit objects
      */
-    public static void main(String[] args){
+    private void parse(){
         //reading files and adding new input to allInput
         String input = readTxt("betterInput.md");
         
