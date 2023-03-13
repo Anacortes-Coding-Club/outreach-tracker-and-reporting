@@ -12,6 +12,7 @@ import java.util.*;
 public class ParseMD{
     public static Info info = new Info(); //the info object, where everything is stored.
     public static String currentDate = null; //holds the date currently being proscessed in string form, for use in person notes.
+    public static ArrayList<String> inputs = new ArrayList<String>();
     
     /**
      * reads the new input, as well as allInput
@@ -39,6 +40,8 @@ public class ParseMD{
         for(int i = 0; i < info.tags.length; i++){
             System.out.println(info.tags[i]);
         }
+        /*guiAttempt g = new guiAttempt();
+        g.go();*/
     }
     
     /**

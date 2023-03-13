@@ -89,8 +89,8 @@ public abstract class Taggable{
     24- #COPEapp
     COPE application
     */    
-    public final String[] tokens = {"#CC", "#TAVE", "#CAR", "#RNPREF", "#GAScard", "#MATref", "#GIFTcard", "#RV", "#TENT", "#BP", "#CWS", "#HousingApp", "#resume", "#jobapp", "#SUDref", "#MHref", "#HMIS", "#FROM/BHAM", "#VetRef", "#MATinfo", "#TicketCitation", "#HolidayMotel", "#IOPref", "#Street", "#COPEapp"};
-    public final String[] translations = {"~met with client", "~on T Avenue", "~living in car", "~referral to RNP", "~provided a gas card", "~referral for Medication Assisted Therapies (MAT) at Didgwalic", "~provided a gift card", "~living in RV", "~living in Tent", "~provided a bus pass", "~living in cold weather shelter", "~completed a housing application", "~completed a resume", "~completed a job application", "~referred to Jennifer for SUD", "~referred to Jennifer for Mental Health", "~entered in HMIS", "~from / bellingham", "~referred for a veteran voucher", "~provided information about MAT", "~person received a citation ticket", "~living in holiday motel", "~referred for intensive outpatient", "~Living on the street", "~COPE application"};
+    public static final String[] tokens = {"#CC", "#TAVE", "#CAR", "#RNPREF", "#GAScard", "#MATref", "#GIFTcard", "#RV", "#TENT", "#BP", "#CWS", "#HousingApp", "#resume", "#jobapp", "#SUDref", "#MHref", "#HMIS", "#FROM/BHAM", "#VetRef", "#MATinfo", "#TicketCitation", "#HolidayMotel", "#IOPref", "#Street", "#COPEapp"};
+    public static final String[] translations = {"~met with client", "~on T Avenue", "~living in car", "~referral to RNP", "~provided a gas card", "~referral for Medication Assisted Therapies (MAT) at Didgwalic", "~provided a gift card", "~living in RV", "~living in Tent", "~provided a bus pass", "~living in cold weather shelter", "~completed a housing application", "~completed a resume", "~completed a job application", "~referred to Jennifer for SUD", "~referred to Jennifer for Mental Health", "~entered in HMIS", "~from / bellingham", "~referred for a veteran voucher", "~provided information about MAT", "~person received a citation ticket", "~living in holiday motel", "~referred for intensive outpatient", "~Living on the street", "~COPE application"};
     public int[] tags = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     /**
@@ -107,18 +107,14 @@ public abstract class Taggable{
         //replace
         notes = rawNotes;
         for(int i = 0; i < tokens.length; i++){
-            if(translations[i] != null){
-                notes = notes.replace(tokens[i], translations[i]);
-            }
+            notes = notes.replace(tokens[i], translations[i]);
         }
     }
     
     private static int count(String token, String input){
-        int b = 0;
-        if (token != null){
-            String[] x = input.split(token);
-            b = (x.length -1);
-        } 
+        int b =0; 
+        String[] x = input.split(token);
+        b = (x.length -1);
         return b;
     }
 }
