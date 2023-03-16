@@ -10,7 +10,8 @@ public class GuiAttempt{
     
     String input;
     JFrame frame = new JFrame("Will it work?");
-    JPanel panel = new JPanel();
+    JPanel editPanel = new JPanel();
+    JPanel menuPanel = new JPanel();
     JTextArea area = new JTextArea();
     JList<String> tags = new JList<String>(Taggable.tokens);
     JList<String> inputs = new JList<String>((String[])ParseMD.inputs.toArray());
@@ -20,29 +21,20 @@ public class GuiAttempt{
         frame.addWindowListener(new clslstnr());
         frame.setSize(100, 100);
         frame.setVisible(true);
-
-        inputs.setVisibleRowCount(6);
-        inputs.addListSelectionListener(null);
-        JScrollPane scrl = new JScrollPane(inputs);
-        scrl.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrl.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        JButton nvst = new JButton("New Visit");
-        nvst.addActionListener(new nvstlstnr());
-
-        frame.add(scrl, BorderLayout.WEST);
-        frame.add(nvst, BorderLayout.NORTH);
+        frame.add(menu());
     }
     
     private void newVisit(){
         saveType = false;
-        frame.add(inputter("@Date"), BorderLayout.CENTER);
+        frame.remove(menuPanel);
+        frame.add(inputter("@Date"));
     }
 
     private void editVisit(int i){
         index = i;
         saveType = true;
-        frame.add(inputter(ParseMD.inputs.get(i)), BorderLayout.CENTER);
+        frame.remove(menuPanel);
+        frame.add(inputter(ParseMD.inputs.get(i)));
     }
 
     private void save(){
@@ -54,12 +46,28 @@ public class GuiAttempt{
                 ParseMD.inputs.add(area.getText());
             }
             area.setText("");
-            frame.remove(panel);
+            frame.remove(editPanel);
+            frame.add(menu());
         }
     }
 
+    private JPanel menu(){
+        inputs.setVisibleRowCount(6);
+        inputs.addListSelectionListener(new inplstnr());
+        JScrollPane scrl = new JScrollPane(inputs);
+        scrl.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrl.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        JButton nvst = new JButton("New Visit");
+        nvst.addActionListener(new nvstlstnr());
+
+        menuPanel.add(scrl, BorderLayout.WEST);
+        menuPanel.add(nvst, BorderLayout.EAST);
+        return menuPanel;
+    }
+
     private JPanel inputter(String start){
-        //panel is an instance variable because the listener classes might need to access it
+        //editPanel is an instance variable because the listener classes might need to access it
         
         //setup text area
         //area is an instance variable because the listener classes need to access it
@@ -88,17 +96,17 @@ public class GuiAttempt{
         tgscrl.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         tgscrl.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        //setup toolbar panel and add tools to it
+        //setup toolbar editPanel and add tools to it
         JPanel toolbar = new JPanel();
         toolbar.add(save);
         toolbar.add(nprsn);
         toolbar.add(tags);
 
-        //add everything to the panel
-        panel.add(scrl, BorderLayout.CENTER);
-        panel.add(toolbar, BorderLayout.SOUTH);
+        //add everything to the editPanel
+        editPanel.add(scrl, BorderLayout.CENTER);
+        editPanel.add(toolbar, BorderLayout.SOUTH);
 
-        return panel;
+        return editPanel;
     }
     public class  nplstnr implements ActionListener{
         public void actionPerformed(ActionEvent event){
@@ -121,7 +129,8 @@ public class GuiAttempt{
     public class  cnclstnr implements ActionListener{
         public void actionPerformed(ActionEvent event){
             area.setText("");
-            frame.remove(panel);
+            frame.remove(editPanel);
+            frame.add(menu());
         }
     }
     public class  clslstnr implements WindowListener{
