@@ -13,9 +13,9 @@ public class ParseMD{
     
     
     public static void main(String[] args){
-        /*GuiAttempt gui = new GuiAttempt();
+        GuiAttempt gui = new GuiAttempt();
         inputs = (ArrayList<String>) readObj("inputs.ser");
-        gui.go();*/
+        gui.go();
         writeObj(inputs, "inputs.ser");
     }
     /**
