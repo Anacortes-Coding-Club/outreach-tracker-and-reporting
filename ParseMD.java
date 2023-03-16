@@ -5,10 +5,7 @@ import java.util.*;
  * Apart from containing main(), it also has file reading and writing capabilities.
  * @author Kai G
  */
- /*a note on the sample files:
- betterInput would be the file to input
- allInput would be the file, stored in the program, holding all input up to now
- ideally, both would be in .md instead of .txt format.*/
+ 
 public class ParseMD{
     public static Info info = new Info(); //the info object, where everything is stored.
     public static String currentDate = null; //holds the date currently being proscessed in string form, for use in person notes.
@@ -16,9 +13,10 @@ public class ParseMD{
     
     
     public static void main(String[] args){
-        //GuiAttempt gui = new GuiAttempt();
-        //gui.go();
-        parse();
+        /*GuiAttempt gui = new GuiAttempt();
+        inputs = (ArrayList<String>) readObj("inputs.ser");
+        gui.go();*/
+        writeObj(inputs, "inputs.ser");
     }
     /**
      * reads the new input, as well as allInput
@@ -38,23 +36,13 @@ public class ParseMD{
         String[] events = input.split("\n# ");
         for(int i = 0; i < events.length; i++){
             ParseMD.info.visits.add(new Visit(events[i]));
-            //System.out.println("got to visit "+i);
         }
-        
-        //test code
-        System.out.println(info.visits.get(0).tags[0]);
-        for(int i = 0; i < info.tags.length; i++){
-            System.out.println(info.tags[i]);
-        }
-        /*guiAttempt g = new guiAttempt();
-        g.go();*/
     }
     
     /**
-     * reads files
+     * reads files, .txt and .md
      * @arguments name is the name of the file you want to read. 
      * @return the contents of the file, in string format
-     * i'm not sure if it works with anything other than .txt files
      */
     public static String readTxt(String name){
         String input = "";
@@ -80,7 +68,7 @@ public class ParseMD{
      * writes files
      * @arguments input is the content that you want to write to the file
      * @arguments name is the name of the file you want to write. 
-     * i'm not sure if it works with anything other than .txt files
+     * @deprecated
      */
     public static void writeTxt(String input, String name){
         try{
@@ -90,6 +78,26 @@ public class ParseMD{
         }catch(IOException ex){
             ex.printStackTrace();
         }
+    }
+
+    public static void writeObj(Object input, String name){
+        try{
+            FileOutputStream fs = new FileOutputStream(name);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+            os.writeObject(input);
+            os.close();
+        }catch(Exception ex){ex.printStackTrace();}
+    }
+
+    public static Object readObj(String name){
+        Object o = null;
+        try{
+            FileInputStream fs = new FileInputStream(name);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            o = os.readObject();
+            os.close();
+        }catch(Exception ex){ex.printStackTrace();}
+        return o;
     }
     
 }

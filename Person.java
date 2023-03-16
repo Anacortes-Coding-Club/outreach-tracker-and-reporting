@@ -11,7 +11,7 @@ public class Person extends Taggable{
     public String name = null;
     private Person(String[] a){
         name = a[0];
-        notes += (name + "\n" + ParseMD.currentDate + "\n");
+        rawNotes += (name + "\n\n" + ParseMD.currentDate + "\n");
         for(int i=1; i < a.length; i++){
             rawNotes += (a[i]+"\n");
         }
@@ -22,7 +22,7 @@ public class Person extends Taggable{
         for(int i = 0; i < ParseMD.info.people.size(); i++){
             if(a[0].contains(ParseMD.info.people.get(i).name) || ParseMD.info.people.get(i).name.contains(a[0])){
                 x = ParseMD.info.people.get(i);
-                x.rawNotes += (ParseMD.currentDate + "\n");
+                x.rawNotes += ("\n" + ParseMD.currentDate + "\n");
                 for(int j=1; j < a.length; j++){
                     x.rawNotes += (a[j]+"\n");
                 }

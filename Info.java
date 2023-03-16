@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.*;
 /**
  * This class holds all the information.
@@ -7,6 +8,6 @@ import java.util.*;
  */
 
 public class Info extends Taggable{
-    public static ArrayList<Visit> visits = new ArrayList<Visit>();
+    public ArrayList<Visit> visits = new ArrayList<Visit>();
     public ArrayList<Person> people = new ArrayList<Person>();
 }

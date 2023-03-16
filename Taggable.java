@@ -1,4 +1,4 @@
-import java.util.*;
+import java.io.Serializable;
 /**
  * This class is to be extended by any class that has notes and tags.
  * it will store the notes and tags,
@@ -7,7 +7,7 @@ import java.util.*;
  * the only method you should call is tagify()
  * @author Kai G
  */
-public abstract class Taggable{
+public abstract class Taggable implements Serializable{
     public String notes;
     public String rawNotes;
     /*the arrays below hold each hashtag, 
@@ -104,11 +104,16 @@ public abstract class Taggable{
             tags[i] += count(tokens[i], rawNotes);
         }
         
-        //replace
+        //replace tags
         notes = rawNotes;
         for(int i = 0; i < tokens.length; i++){
             notes = notes.replace(tokens[i], translations[i]);
         }
+
+        //replace other
+        notes = notes.replace("_", "*");
+        notes = notes.replace("-", "*");
+        notes = notes.replace("null", "");
     }
     
     private static int count(String token, String input){
