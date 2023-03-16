@@ -101,7 +101,7 @@ public abstract class Taggable{
     public void tagify(){
         //count
         for (int i = 0; i < tokens.length; i++){
-            tags[i] += count(rawNotes, tokens[i]);
+            tags[i] += count(tokens[i], rawNotes);
         }
         
         //replace

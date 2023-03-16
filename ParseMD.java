@@ -16,8 +16,9 @@ public class ParseMD{
     
     
     public static void main(String[] args){
-        GuiAttempt gui = new GuiAttempt();
-        gui.go();
+        //GuiAttempt gui = new GuiAttempt();
+        //gui.go();
+        parse();
     }
     /**
      * reads the new input, as well as allInput
@@ -25,7 +26,7 @@ public class ParseMD{
      * tagifies the whole document
      * creates visit objects
      */
-    private void parse(){
+    private static void parse(){
         //reading files and adding new input to allInput
         String input = readTxt("betterInput.md");
         
