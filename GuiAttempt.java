@@ -9,7 +9,7 @@ public class GuiAttempt{
     int index; /*for replacing things in ParseMD.inputs*/
     
     String input;
-    JFrame frame = new JFrame("Will it work?");
+    JFrame frame = new JFrame("Visit notes");
     JPanel editPanel = new JPanel();
     JPanel menuPanel = new JPanel();
     JTextArea area = new JTextArea();
@@ -74,6 +74,7 @@ public class GuiAttempt{
         area.setText(start);
         area.setLineWrap(true);
         area.requestFocus();
+        
         JScrollPane scrl = new JScrollPane(area);
         scrl.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrl.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
