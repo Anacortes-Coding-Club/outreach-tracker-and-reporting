@@ -67,7 +67,7 @@ public class Parser {
 
     public static void main(String[] args) {
         ArrayList<Visit> visits = parseFile();
-        System.out.println("Loaded visits:" + visits.size());
+        System.out.println("Loaded visits: " + visits.size());
 
         // serialize
         String result = Util.objectToJson(visits);
@@ -76,7 +76,7 @@ public class Parser {
         System.out.println("Wrote " + filename);
 
         // deserialize
-        String json = Util.readFileAsString("visits.json");
+        String json = Util.readFileAsString(filename);
         ArrayList<Visit> visitsDeserialized = Util.jsonToVisits(json);
         System.out.println("And read back visits: " + visitsDeserialized.size());
 
