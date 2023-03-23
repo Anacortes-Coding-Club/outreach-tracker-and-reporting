@@ -5,7 +5,7 @@ function parseVisit(visit, date) {
   const name = parts[0].split(",");
   const notes = parts[1];
   const regexp = /#[\w\/]+/g;
-  const hashtags = [...notes.matchAll(regexp)];
+  const hashtags = [...notes.matchAll(regexp)].map((m) => m[0]);
   const visitObj = { date, name, hashtags, notes };
   return visitObj;
 }
