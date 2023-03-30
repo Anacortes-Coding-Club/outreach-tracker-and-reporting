@@ -24,9 +24,50 @@ public class Date
     }
     public void printDate()
     {
+        /*
         String temp;
         temp = numToMonth(month);
         System.out.println(temp + " " + day + ", " + year);
+        */
+        String temp;
+        temp = "\t{\"month\" : " + month + ", \"day\" : " + day + ", \"year\" : " + year + ", \"visitArray\" : [";
+        System.out.println(temp);
+        //{"month" : 1, "day" : 1, "year" : 1, "visitArray" :
+    }
+    public void printPersons ()
+    {
+        int i = visitStorage.size();
+        for (Visit visit: visitStorage) {
+            ArrayList<Person> personStorage= visit.getPersons();
+            for (Person person : personStorage) {
+                // [{"name" : "scooby", "tagArray" : ["CC"], "noteArray" : ["bleep bloop", "bloop blorp", "blorp bleep"]},
+                String temp;
+                temp = "{\"firstName\" : \"" + person.getFirstName() + "\", \"lastName\" : \"" + person.getLastName() + "\", \"tagArray\" : [";
+                ArrayList<Tag> tempTag = person.getTags();
+                for (Tag tag : tempTag) {
+                    temp = temp + "\"" + tag.getTag() + "\", ";
+                }
+                if(tempTag.isEmpty())
+                    temp = temp + " \"\", ";
+                temp = temp.substring(0, temp.length() - 2);
+                temp = temp + "], \"noteArray\" : [";
+                ArrayList<Note> tempNote = person.getNotes();
+                for (Note note : tempNote) {
+                    temp = temp + "\"" + note.getNote() + "\", ";
+                }
+                if(tempNote.isEmpty())
+                    temp = temp + " \"\", ";
+                temp = temp.substring(0, temp.length() - 2);
+                temp = temp + "]}, ";
+                if(i-- == 1)
+                {
+                    temp = temp.substring(0, temp.length() - 2);
+                    System.out.print("\t\t" + temp);
+                }
+                else
+                    System.out.println("\t\t" + temp);
+            }
+        }
     }
     public String numToMonth (int input)
     {

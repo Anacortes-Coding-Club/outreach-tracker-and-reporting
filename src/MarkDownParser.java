@@ -138,6 +138,7 @@ public class MarkDownParser {
                 }
                 line = line.replace("-","*");
                 line = line.replace("_","*");
+                line = line.replace("\\","/");
                 if(line.contains("*"))
                 {
                     char[] lineChar = line.toCharArray();
@@ -178,12 +179,23 @@ public class MarkDownParser {
     }
     private static void print()
     {
+        System.out.println("{");
+        System.out.print("\t\"dateArray\" : [");
+        int i = dateStorage.size();
         for(Date date : dateStorage)
         {
             date.printDate();
-            date.printVisits();
-            line();
+            date.printPersons();
+            if(i-- == 1)
+            {
+                System.out.println("\n\t]}");
+            }
+            else
+                System.out.println("\n\t]}, ");
         }
+        System.out.println("\t]");
+        System.out.println("}");
+        //{"month" : 1, "day" : 1, "year" : 1, "visitArray" : [{"name" : "scooby", "tagArray" : ["CC"], "noteArray" : ["bleep bloop", "bloop blorp", "blorp bleep"]}, {"name" : "scooby", "tagArray" : ["CC"], "noteArray" : ["bleep bloop", "bloop blorp", "blorp bleep"]}]}
     }
     private static void line()
     {
