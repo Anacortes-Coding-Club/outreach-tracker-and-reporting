@@ -8,7 +8,35 @@ public class MarkDownParser {
     private static ArrayList<Date> dateStorage = new ArrayList<>();
     private static ArrayList<String> textStorage = new ArrayList<>();
     private static Date toolDate = new Date();
+    /*
+    Number of visits
+        visits.count
+    Number and range of outreach days
+        Construct array/set of day and remove duplicates
+    Number of job applications
+        Sum hashtags for visit
+    Number of unique people served
+        Same as ii.
+    Number of people living in cars
+        Either double loop, or cached in map
+    Visits behind a number
+        bloop
+    Visit history for a person
+        bloop
 
+    Write new code to parse through JSON data
+    Write new code to accept files from a computer
+    Write new code to create a PDF report
+
+    Global Statistics
+    Timeline Statistics
+    Graphs?
+    Summary of each person
+    Summary of each date?
+
+    Rewrite code according to single responsibility principle?
+    What other information needs to be included?
+     */
     public static void main(String[] args)
     {
         parse();
