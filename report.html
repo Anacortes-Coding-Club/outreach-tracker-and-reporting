@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outreach Report</title>
+  </head>
+  <body>
+    <h1>
+      Outreach Report -
+      <span id="date"></span>
+    </h1>
+    <p>26 Outreach Service Days</p>
+    <p id="cc"></p>
+
+    <h3>Client demographics</h3>
+    <ul>
+      <li>21 clients on T Avenue</li>
+    </ul>
+
+    <script>
+      function buildReport(visits) {
+        console.log(visits.length);
+        document.getElementById("cc").innerText =
+          visits.length + " meetings with clients";
+      }
+
+      let options = { month: "long", day: "numeric", year: "numeric" };
+      let today = new Date();
+      document.getElementById("date").innerHTML = today.toLocaleDateString(
+        "en-US",
+        options
+      );
+
+      fetch("./visits.json")
+        .then((response) => response.json())
+        .then((json) => buildReport(json));
+    </script>
+  </body>
+</html>
