@@ -1,0 +1,212 @@
+- decoded: meetings with clients
+  tag: "#CC"
+  user: false
+- decoded: clients on T Avenue
+  tag: "#TAVE"
+  user: true
+- decoded: living in a car
+  tag: "#CAR"
+  user: true
+- decoded: quilts from the hub
+  section: supplies
+  tag: "#HUB"
+  user: false
+- decoded: referral to RNP
+  section: referral
+  tag: "#RNPREF"
+  user: false
+- decoded: gas cards
+  section: supplies
+  tag: "#GAScard"
+  user: false
+- decoded: referral for MAT
+  section: referral
+  tag: "#MATref"
+  user: false
+- decoded: gift cards
+  section: supplies
+  tag: "#GIFTcard"
+  user: false
+- decoded: living in an RV
+  tag: "#RV"
+  user: true
+- decoded: living in a tent
+  tag: "#TENT"
+  user: true
+- decoded: bus passes
+  section: supplies
+  tag: "#BP"
+  user: false
+- decoded: living in Cold Weather Shelter
+  tag: "#CWS"
+  user: true
+- decoded: housing applications prepared
+  section: service
+  tag: "#HousingApp"
+  user: false
+- decoded: client resumes prepared
+  section: service
+  tag: "#resume"
+  user: false
+- decoded: job applications prepared
+  section: service
+  tag: "#jobapp"
+  user: false
+- decoded: referral to Jennifer for SUD
+  section: referral
+  tag: "#SUDref"
+  user: false
+- decoded: referral to Jennifer for Mental Health
+  section: referral
+  tag: "#MHref"
+  user: false
+- decoded: clients entered in HMIS
+  section: service
+  tag: "#HMIS"
+  user: false
+- decoded: from Bellingham (returned home)
+  tag: "#FROM/BHAM"
+  user: true
+- decoded: referred for a veteran voucher
+  section: referral
+  tag: "#VetRef"
+  user: false
+- decoded: provided information about MAT
+  section: referral
+  tag: "#MATinfo"
+  user: false
+- decoded: received a ticket / citation
+  section: other
+  tag: "#TicketCitation"
+  user: false
+- decoded: living in Holiday Motel
+  tag: "#HolidayMotel"
+  user: true
+- decoded: referred for intensive outpatient
+  section: referral
+  tag: "#IOPref"
+  user: false
+- decoded: living on the street
+  tag: "#Street"
+  user: true
+- decoded: met with client
+  tag: "#cc"
+  user: false
+- decoded: provided a birth certificate
+  section: service
+  tag: "#BirthCert"
+  user: false
+- decoded: clothing voucher(s)
+  section: supplies
+  tag: "#ClothingVoucher"
+  user: false
+- decoded: laundry voucher(s)
+  section: supplies
+  tag: "#LaundryVoucher"
+  user: false
+- decoded: referrals to shelters
+  section: referral
+  tag: "#SHELTERref"
+  user: false
+- decoded: ferry ticket
+  section: supplies
+  tag: "#FERRYticket"
+  user: false
+- decoded: Client has graduation
+  tag: "#Graduation"
+  user: false
+- decoded: referred to Cold Weather Shelter at Salvation Army
+  section: referral
+  tag: "#CWSref"
+  user: false
+- decoded: living in AFC shelter
+  tag: "#AFCshelter"
+  user: true
+- decoded: living in Anaco Bay Inn
+  tag: "#AnacoBayInn"
+  user: true
+- decoded: referral to NW regional
+  section: referral
+  tag: "#NWRegRef"
+  user: false
+- decoded: referred to the ER
+  section: referral
+  tag: "#ERref"
+  user: false
+- decoded: living in Marina Inn
+  tag: "#MarinaInn"
+  user: true
+- decoded: living in San Juan Motel
+  tag: "#SanJuanMotel"
+  user: true
+- decoded: COPES application prepared
+  section: service
+  tag: "#COPESapp"
+  user: false
+- decoded: client in the hospital
+  tag: "#Hospital"
+  user: true
+- decoded: gave client dental information
+  section: referral
+  tag: "#DentalRef"
+  user: false
+- decoded: provided a greyhound ticket
+  section: supplies
+  tag: "#GrehoundTicket"
+  user: false
+- decoded: living in Veteran Affairs Supportive Housing (VASH)
+  tag: "#VASH"
+  user: true
+- decoded: referred to Washington Park
+  section: referral
+  tag: "#WaParkRef"
+  user: false
+- decoded: referred to Helping Hands
+  section: referral
+  tag: "#HelpingHandsRef"
+  user: false
+- decoded: client asked to vacate T avenue
+  section: other
+  tag: "#Vacate"
+  user: false
+- decoded: referred to Anacortes Family Center
+  section: referral
+  tag: "#AFCref"
+  user: false
+- decoded: referred to DVSAS
+  section: referral
+  tag: "#DVSASref"
+  user: false
+- decoded: client exiting motel voucher program
+  section: other
+  tag: "#EXIT"
+  user: false
+- decoded: clients supported by Salvation Army
+  section: service
+  tag: "#SalvationArmy"
+  user: false
+- decoded: referred to NW Youth Services
+  section: referral
+  tag: "#NWYSref"
+  user: false
+- decoded: living at Washington Park
+  tag: "#WaPark"
+  user: true
+- decoded: Referred to Light House RV
+  section: referral
+  tag: "#LightHouseRVref"
+  user: false
+- decoded: living in Cap Sante Inn
+  tag: "#CapSanteInn"
+  user: true
+- decoded: living in the Fidalgo Inn
+  tag: "#FidalgoInn"
+  user: true
+- decoded: referred to Munroe's Driving School
+  section: service
+  tag: "#DriversLicenseRef"
+  user: false
+- decoded: provided a Section 8 voucher
+  section: service
+  tag: "#Section8Voucher"
+  user: false
